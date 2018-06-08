@@ -6,7 +6,13 @@ function isUrl(str) {
   return str.indexOf('http') > -1;
 }
 
+
 exports.run = (client, message, args, level) => {
+  /*
+  * message -- The entire message from discord.
+  *            message.flags contain each sequential arg with '-'
+  * args -- Each element of the message without '-'
+  */
   const insults = insultsMap.get(message.guild.id) || [];
   
   let keywords = ["add", "list", "empty"];
